@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-content">
+    <%= simple_form_for([:partners, business_unit, role]) do |f| %>
+      <%= f.error_notification %>
+
+      <%#= f.association :business_unit, as: :select, collection: business_units_for_select, prompt: 'Select business unit' %>
+      <%= f.input :name %>
+
+      <%= f.input :interactions,
+        as: :bulma_select2,
+        collection: Interaction::PARTNER_TYPES,
+        input_html: { multiple: true, data: { close_on_select: false } }
+      %>
+
+      <label class="label mt-1">Top questions</label>
+
+      <div class="columns">
+        <div class="column">
+          <%= render 'top_question_input', f: f, index: 1 %>
+        </div>
+        <div class="column">
+          <%= render 'top_question_input', f: f, index: 2 %>
+        </div>
+        <div class="column">
+          <%= render 'top_question_input', f: f, index: 3 %>
+        </div>
+      </div>
+
+      <%= react_component('RolePreferenceStructure', {
+        items: preference_groups_json(PreferenceGroup.all),
+        left: role.preference_structure_left,
+        right: role.preference_structure_right
+      }) %>
+
+      <div class="field is-grouped mt-1">
+        <div class="control">
+          <%= f.submit class: 'button is-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

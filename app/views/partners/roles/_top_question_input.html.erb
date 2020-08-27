@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-content">
+    <label class="label">Question <%= index %></label>
+    <%= f.input :top_questions_data,
+      label: false,
+      as: :bulma_select2,
+      collection: Question.where(id: f.object.top_question(index)),
+      selected: f.object.top_question(index),
+      input_html: {
+        name: 'role[top_questions_data][][id]',
+        data: {
+          url: partners_questions_path
+        }
+      }
+    %>
+    <%= hidden_field_tag 'role[top_questions_data][][position]', nil, value: index %>
+  </div>
+</div>

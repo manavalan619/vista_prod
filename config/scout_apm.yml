@@ -1,0 +1,13 @@
+common: &defaults
+  name: YOUR_APPLICATION_NAME
+  key: UT9D9JxUPzCyTd3n8RCw1w6A
+  monitor: true
+  log_level: <%= ENV.fetch('SCOUT_LOG_LEVEL', 'INFO') %>
+  enable_background_jobs: <%= ENV.fetch('SCOUT_ENABLE_BACKGROUND_JOBS', true) %>
+  scout_profile: <%= ENV.fetch('SCOUT_PROFILE', true) %>
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

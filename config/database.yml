@@ -1,0 +1,34 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  adapter: postgresql
+  database: vistaplatform_productiondemo
+  # host: local
+  encoding: unicode
+  username: username
+  password: 12345678
+
+test:
+  <<: *default
+  adapter: postgresql
+  database: my_application_development
+  # host: local
+  encoding: unicode
+  username: username
+  password: 12345678
+# staging:
+#   <<: *default
+#   database: vista-platform_staging
+
+production:
+  <<: *default
+  adapter: postgresql
+  database: my_application_development
+  # host: local
+  encoding: unicode
+  username: username
+  password: 12345678
