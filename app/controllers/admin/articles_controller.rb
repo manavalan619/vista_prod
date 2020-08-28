@@ -13,7 +13,7 @@ class Admin::ArticlesController < Admin::BaseController
   end
 
   def show
-    redirect_to [:edit, :admin, @article]
+    redirect_to [:edit, :vistaprod, @article]
   end
 
   def edit
@@ -22,7 +22,7 @@ class Admin::ArticlesController < Admin::BaseController
 
   def update
     if @article.update article_params
-      redirect_to %i[admin articles], success: 'Article updated'
+      redirect_to %i[vistaprod articles], success: 'Article updated'
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class Admin::ArticlesController < Admin::BaseController
 
   def destroy
     @article.destroy
-    redirect_to %i[admin articles], success: 'Article deleted'
+    redirect_to %i[vistaprod articles], success: 'Article deleted'
   end
 
   private
