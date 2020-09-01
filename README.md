@@ -23,3 +23,6 @@ Once the `authentication_token` is correct we get `200` as HTTP response status,
     $ curl -v -X GET -H 'Authorization: Token token=UT9D9JxUPzCyTd3n8RCw1w6A' http://localhost:3000/api/v1/members
 
 Authenticated user will be hereafter called `current_user`.
+
+
+demo
