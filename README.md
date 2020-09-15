@@ -25,5 +25,4 @@ Once the `authentication_token` is correct we get `200` as HTTP response status,
 Authenticated user will be hereafter called `current_user`.
 
 
-demo done come
-sample
+demo done com
