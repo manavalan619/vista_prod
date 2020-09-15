@@ -26,3 +26,4 @@ Authenticated user will be hereafter called `current_user`.
 
 
 demo done come
+sample
